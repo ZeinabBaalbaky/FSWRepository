@@ -7,10 +7,10 @@ window.onload = function () {
     var lost = false;
     document.getElementById("score").innerHTML = "0";
     var boundaries = document.getElementsByClassName("boundary");
-	document.getElementById("status").innerHTML = "";
+	document.getElementById("status").innerHTML = "Start game ";
     /*start */
     document.getElementById("start").addEventListener("mouseover", function () {
-        document.getElementById("status").textContent = "";
+        document.getElementById("status").textContent = "Start game";
         isStarted = true;
         isInRoad = true;
         for (var i = 0; i < boundaries.length; i++) { 
@@ -33,19 +33,16 @@ window.onload = function () {
 					 document.getElementById("score").style.backgroundColor ="#EEEEEE";
 					 }
                 document.getElementById("status").textContent = "You lost";
-						var score = Number(document.getElementById("score").innerHTML);
-		       document.getElementById("score").textContent = parseInt(document.getElementById("score").textContent) - 10;
                 isStarted = false;
-				lost = true;
+                			    var score = Number(document.getElementById("score").innerHTML);
+				score = Number(score) - Number(10 ) ;
+				document.getElementById("score").textContent = score;
 			
             }
+
+
         });
 		
-		if(lost == true){
-
-				alert(lost);
-			
-		}
 
 
 
@@ -57,12 +54,17 @@ window.onload = function () {
 					        var score = Number(document.getElementById("score").innerHTML);
 				            score = Number(score) + Number(5 ) ;
 				            document.getElementById("score").textContent = score;
-			                
+				            for (var i = 0; i < boundaries.length; i++){
+					              boundaries[i].style.backgroundColor = "green";
+								   document.getElementById("score").style.backgroundColor ="#EEEEEE";
+					 }
 			}
+			                
             else {
                 document.getElementById("status").textContent = "Don't Try to reach the end by cheating!";
-												var score = Number(document.getElementById("score").innerHTML);
-				document.getElementById("score").textContent = parseInt(document.getElementById("score").textContent) - 10;
+			    var score = Number(document.getElementById("score").innerHTML);
+				score = Number(score) - Number(10 ) ;
+				document.getElementById("score").textContent = score;
                 isStarted = false;
             }
         }
