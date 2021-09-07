@@ -29,6 +29,13 @@
      	die("price is required!");
 		
 	}
+	if(isset($_POST["quantity"]) && $_POST["quantity"] != ""){
+		$quantity = $_POST["quantity"];
+	}
+	else{
+     	die("quantity is required!");
+		
+	}
 	$filename = $_FILES['photo']['name'];
 	if(!empty($filename)){
 				$ext = pathinfo($filename, PATHINFO_EXTENSION);
@@ -40,9 +47,9 @@
 			}
 
 
-    $store_id= 1;
-	$x = $connection->prepare("INSERT INTO products (name,price,store_id,image,category_id) VALUES (?,?,?,?,?)");
-	$x->bind_param("sdisi", $name,$price, $store_id,$new_filename,$category);
+    $store_id= $_SESSION['id'];;
+	$x = $connection->prepare("INSERT INTO products (name,price,store_id,image,category_id,quantity) VALUES (?,?,?,?,?,?)");
+	$x->bind_param("sdisii", $name,$price, $store_id,$new_filename,$category,$quantity );
 	$x->execute();
 	$x->close();
 	$connection->close();

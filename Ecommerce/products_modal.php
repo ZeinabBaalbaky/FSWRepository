@@ -50,6 +50,12 @@
                   <div class="col-sm-5">
                     <input type="text" class="form-control" id="price" name="price" required>
                   </div>
+				    <label for="price" class="control-label">quantity</label>
+
+                  <div class="col-sm-5">
+                    <input type="text" class="form-control" id="quantity" name="quantity" required>
+                  </div>
+
 
                   <label for="photo" class=" control-label">Photo</label>
 

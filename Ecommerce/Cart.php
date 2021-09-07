@@ -28,6 +28,10 @@
 		        			</tbody>
 		        		</table>
 	        			</div>
+							      
+                        <div class="p-t-15">
+                            <button class="btn btn--radius-2 btn-success" type="submit" id="submit"  onClick="validatePassword();" >Submit</button>
+                        </div>
 	        		</div>
 	        		<?php
 	        			if(isset($_SESSION['id'])){
@@ -50,7 +54,7 @@
 	     
 	    </div>
 	  </div>
-	      <button class="btn btn--radius-2 btn--blue" type="submit" id="submit"  >Submit</button>
+
 	  </form>
 
   	<?php include 'footer.php'; ?>

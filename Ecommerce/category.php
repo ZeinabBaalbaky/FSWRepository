@@ -51,11 +51,17 @@
 		       								<div class='box-body prod-body'>
 		       									<img src='".$image."' width='100%' height='230px' class='thumbnail'>
 		       									<h5><a href='product.php?product=".$row['id']."'>".$row['name']."</a></h5>
+											
 		       								</div>
 		       								<div class='box-footer'>
-		       									<b>&#36; ".number_format($row['price'], 2)."</b>
-												<a href='addCart.php?product=".$row['id']."' class='pull-right cart'><i class='fa fa-shopping-cart'></i></a>
+		       									<b>&#36; ".number_format($row['price'], 2)."</b>";
+												if($row['quantity'] >0){ echo "
+												<a href='addCart.php?product=".$row['id']."' class='pull-right cart'><i class='fa fa-shopping-cart'></i></a> ";}
+												if($row['quantity'] ==0){ echo "<h5 class='pull-right'>out of stock!</h5>";}
+												echo "&ensp;<i class='fal fa-heart'></i>
 		       								</div>
+
+											
 	       								</div>
 	       							</div>
 	       						";
@@ -100,5 +106,15 @@
 </div>
 
 <?php include 'scripts1.php'; ?>
+<script>
+$(document).ready(function(){
+  $(".fa-heart").click(function(){
+
+    $(this).toggleClass("heart");
+
+	
+  });
+});
+</script>
 </body>
 </html>

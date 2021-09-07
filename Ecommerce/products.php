@@ -1,6 +1,8 @@
 <?php 
 	  include("connection.php"); 
-	  $query = "Select * from products where store_id=1";
+
+	  $id= $_SESSION['id'];
+	  $query = "Select * from products where store_id ='$id'";
       $stmt = $connection->prepare($query);
       $stmt->execute();
       $result = $stmt->get_result();
@@ -35,7 +37,7 @@
 				<td><?php echo $row["name"]; ?></td>
 				<td><?php echo $row["price"]; ?></td>
 				<td><?php echo $row["quantity"]; ?></td>
-				<td><?php echo " <img src='".$image."' height='50px' width='50px'> " ?></td>
+				<td><?php echo " <img src='".$image."' height='50px' width='50px'> <span class='pull-right'><a href='#edit_photo' class='photo' data-toggle='modal' data-id='".$row['id']."'><i class='fa fa-edit'></i></a></span>" ?></td>
 				<td><?php echo "
 				   
                               <button class='btn btn-success btn-sm edit btn-flat' data-id='".$row['id']."'><i class='fa fa-edit'></i> Edit</button>
@@ -52,11 +54,18 @@
     <?php include 'products_modal2.php'; ?>
 </div>
 <?php include 'scripts.php'; ?>
+<?php include 'scripts1.php'; ?>
 <script>
 $(function(){
   $(document).on('click', '.edit', function(e){
     e.preventDefault();
     $('#edit').modal('show');
+    var id = $(this).data('id');
+    getRow(id);
+  });
+    $(document).on('click', '.photo', function(e){
+    e.preventDefault();
+    $('#edit_photo').modal('show');
     var id = $(this).data('id');
     getRow(id);
   });

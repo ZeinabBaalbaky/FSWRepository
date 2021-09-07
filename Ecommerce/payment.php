@@ -22,6 +22,8 @@
 				foreach($stmt as $row){
 					$stmt = $conn->prepare("INSERT INTO sale_details (sale_id, product_id, quantity,date,user_id) VALUES (:sale_id, :product_id, :quantity,:date,:user_id)");
 					$stmt->execute(['sale_id'=>$salesid , 'product_id'=>$row['product_id'], 'quantity'=>$row['quantity'],'date'=>$date,'user_id'=>$id]);
+					$stmt2 = $conn->prepare("update products set quantity = quantity - :quantity where id =:id");
+					$stmt2->execute(['quantity'=>$row['quantity'],'id'=>$id]);
 				}
 
 				$stmt = $conn->prepare("DELETE FROM cart WHERE user_id='$id'");

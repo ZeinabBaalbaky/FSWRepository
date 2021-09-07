@@ -29,6 +29,7 @@
 
   	<!-- Google Font -->
   	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 
     <!-- Paypal Express -->
     <script src="https://www.paypalobjects.com/api/checkout.js"></script>
@@ -104,6 +105,11 @@
 	.carousel-inner > .item > img {
   width:640px;
   height:360px;
+}
+.heart{
+
+	color:red;
+
 }
 
     </style>

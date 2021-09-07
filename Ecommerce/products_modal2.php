@@ -57,6 +57,16 @@
                   <div class="col-sm-5">
                     <input type="text" class="form-control" id="edit_price" name="price">
                   </div>
+				   <label for="edit_quantity" class="control-label">quantity</label>
+
+                  <div class="col-sm-5">
+                    <input type="text" class="form-control" id="edit_quantity" name="quantity">
+                  </div>
+				  <label for="photo" class=" control-label">Photo</label>
+
+                  <div class="col-sm-5">
+                    <input type="file" id="photo" name="photo">
+                  </div>
                 </div>
 
             </div>

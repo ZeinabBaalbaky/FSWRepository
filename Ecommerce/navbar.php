@@ -76,15 +76,17 @@ session_start(); ?>
             if(isset($_SESSION['id'])){
 				$first_name = $_SESSION['first_name'];
 				$last_name = $_SESSION['last_name'];
+				$image = (!empty($_SESSION['image'])) ? 'Images/'.$_SESSION['image'] : 'Images/profile.jpg';
               echo '
                 <li class="dropdown user user-menu">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+				  <img src="'.$image.'" class="user-image" alt="User Image">
                     <span class="hidden-xs">'.$first_name.' '.$last_name.'</span>
                   </a>
                   <ul class="dropdown-menu">
                     <!-- User image -->
-                    <li >
-
+                     <li class="user-header">
+                      <img src="'.$image.'" class="img-circle" alt="User Image">
                       <p style="text-align:center;">
                       <strong>  '.$first_name.' '.$last_name.' </strong>
                       </p>
