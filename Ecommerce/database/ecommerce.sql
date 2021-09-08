@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 06, 2021 at 06:46 PM
+-- Generation Time: Sep 08, 2021 at 05:37 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -88,12 +88,13 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `quantity`, `price`, `store_id`, `category_id`, `image`) VALUES
-(1, 'HP', 40, 1000, 1, 1, 'HP.jpg'),
+(1, 'hp', 25, 1200, 1, 1, 'hp_1631105168.jpg'),
 (2, 'Toshiba', 30, 1000, 1, 1, 'toshiba.jpg'),
 (3, 'Lenovo', 35, 1000, 1, 1, 'lenovo.jpg'),
-(4, 'Samsung', 30, 1000, 1, 2, NULL),
 (5, 'iphone12Pro', 30, 1100, 1, 2, 'iphone12Pro.jpg'),
-(6, 'IphoneProMax', 60, 1100, 1, 2, 'IphoneProMax.jpg');
+(6, 'IphoneProMax', 60, 1100, 1, 2, 'IphoneProMax.jpg'),
+(8, 'iphone12', 20, 1100, 1, 2, 'iphone12.jpg'),
+(10, 'S12', 23, 1000, 1, 2, 'S12.jpg');
 
 -- --------------------------------------------------------
 
@@ -157,7 +158,11 @@ INSERT INTO `sales` (`id`, `user_id`, `total`) VALUES
 (43, 1, 5000),
 (44, 1, 5000),
 (45, 1, 7000),
-(46, 1, 4000);
+(46, 1, 4000),
+(47, 1, 2200),
+(48, 1, 5000),
+(49, 1, 3300),
+(50, 1, 3600);
 
 -- --------------------------------------------------------
 
@@ -254,7 +259,17 @@ INSERT INTO `sale_details` (`id`, `product_id`, `quantity`, `user_id`, `date`, `
 (74, 1, 40, 1, '2021-09-06 00:00:00', 45),
 (75, 2, 30, 1, '2021-09-06 00:00:00', 45),
 (76, 1, 2, 1, '2021-09-06 00:00:00', 46),
-(77, 2, 2, 1, '2021-09-06 00:00:00', 46);
+(77, 2, 2, 1, '2021-09-06 00:00:00', 46),
+(78, 6, 1, 1, '2021-09-07 00:00:00', 47),
+(79, 5, 1, 1, '2021-09-07 00:00:00', 47),
+(80, 1, 2, 1, '2021-09-07 00:00:00', 48),
+(81, 2, 3, 1, '2021-09-07 00:00:00', 48),
+(82, 5, 1, 1, '2021-09-07 00:00:00', 49),
+(83, 6, 1, 1, '2021-09-07 00:00:00', 49),
+(84, 5, 1, 1, '2021-09-07 00:00:00', 49),
+(85, 1, 1, 1, '2021-09-07 00:00:00', 50),
+(86, 1, 1, 1, '2021-09-07 00:00:00', 50),
+(87, 1, 1, 1, '2021-09-07 00:00:00', 50);
 
 -- --------------------------------------------------------
 
@@ -291,17 +306,18 @@ CREATE TABLE `users` (
   `email` text NOT NULL,
   `gender` tinyint(4) DEFAULT NULL,
   `password` text NOT NULL,
-  `phone_number` varchar(11) NOT NULL
+  `phone_number` varchar(11) NOT NULL,
+  `image` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `gender`, `password`, `phone_number`) VALUES
-(1, 'zeinab', 'ba', 'zeinab@gmail.com', 0, '4309f1932657317712759d0660f52fb344c841cda5c3fa0eece642b677be083e', '70709263'),
-(2, 'ali', 'ha', 'ali@gmail.com', 0, '94419b99b12c11133a4dfeccc3e17885974beb48f7827c48239aabfbcad238d8', '1233455'),
-(3, 'Malak', 'ba', 'malak@gmail.com', 0, 'b3955cf63acbbc2f235241cd261b9759ae4698936987d07e25bc6127b2a1863d', '456799');
+INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `gender`, `password`, `phone_number`, `image`) VALUES
+(1, 'zeinab', 'ba', 'zeinab@gmail.com', 0, '4309f1932657317712759d0660f52fb344c841cda5c3fa0eece642b677be083e', '70709263', NULL),
+(2, 'ali', 'ha', 'ali@gmail.com', 0, '94419b99b12c11133a4dfeccc3e17885974beb48f7827c48239aabfbcad238d8', '1233455', NULL),
+(3, 'Malak', 'ba', 'malak@gmail.com', 0, 'b3955cf63acbbc2f235241cd261b9759ae4698936987d07e25bc6127b2a1863d', '456799', NULL);
 
 --
 -- Indexes for dumped tables
@@ -357,31 +373,31 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
 
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `sales`
 --
 ALTER TABLE `sales`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `sale_details`
 --
 ALTER TABLE `sale_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
 
 --
 -- AUTO_INCREMENT for table `stores`

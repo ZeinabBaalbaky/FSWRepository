@@ -13,7 +13,7 @@
 <div class="card mb-3">
     <div class="card-header">
         <i class="fas fa-table"></i>
-        Product
+        Products
         <a href="#addnew" data-toggle="modal" class="btn btn-info pull-right fa fa-plus" id="addproduct">Add New</a>
 		<!-- <a href="#addnew" data-toggle="modal" class="btn btn-primary btn-sm btn-flat" id="addproduct"><i class="fa fa-plus"></i> New</a> -->
     </div>
@@ -127,6 +127,7 @@ function getRow(id){
       $('#edit_name').val(response.prodname);
       $('#catselected').val(response.category_id).html(response.catname);
       $('#edit_price').val(response.price);
+	  $('#edit_quantity').val(response.quantity);
       CKEDITOR.instances["editor2"].setData(response.description);
       getCategory();
     }

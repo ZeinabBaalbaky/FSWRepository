@@ -1,6 +1,5 @@
 <?php
-	include("conn.php"); 
-
+    include 'conn.php';
 	if(isset($_POST['upload'])){
 		$id = $_POST['id'];
 
@@ -14,7 +13,7 @@
          $filename = $_FILES['photo']['name'];
 		if(!empty($filename)){
 			$ext = pathinfo($filename, PATHINFO_EXTENSION);
-			$new_filename = $row['name'].'.'.$ext;
+			$new_filename =  $row['name'].'_'.time().'.'.$ext;
 			move_uploaded_file($_FILES['photo']['tmp_name'], 'Images/'.$new_filename);	
 		}
 		else{
@@ -23,8 +22,8 @@
           
 		  
 
-			$stmt = $conn->prepare("UPDATE products SET name='HP' WHERE id='1'");
-			$stmt->execute();
+			$stmt = $conn->prepare("UPDATE products SET image=:photo WHERE id=:id");
+			$stmt->execute(['photo'=>$new_filename, 'id'=>$id]);
 
 	
 

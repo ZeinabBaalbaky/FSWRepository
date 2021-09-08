@@ -76,9 +76,9 @@
 
 
             <li class="nav-item">
-                <a class="nav-link" href="CategoriesMain.php">
+                <a class="nav-link" href="HomeStore.php">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Categories</span>
+                    <span>Products</span>
                 </a>
             </li>
 
@@ -87,11 +87,10 @@
            
         </ul>
         <div id="content-wrapper">
-           
-                <!-- Icon Cards-->
+
 
 <?php 
-	  include("products.php"); 
+	  include("Categories2.php"); 
 	  
 ?>
 
@@ -135,7 +134,14 @@
         </div>
     </div>
    
-  
+    	            <footer class="sticky-footer">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+					<strong>Copyright &copy;  <?php echo date("Y");?> <a href="#">  Z-Ecommerce</a></strong>
+                      
+                    </div>
+                </div>
+            </footer>
 </body>
 
 

@@ -3,9 +3,9 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
+			   <h4 class="modal-title" style="text-align:center !important;" ><b>Deleting...</b></h4>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title"><b>Deleting...</b></h4>
             </div>
             <div class="modal-body">
               <form class="form-horizontal" method="POST" action="products_delete.php">
@@ -29,9 +29,9 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
+			   <h4 class="modal-title" style="text-align:center !important;"><b>Edit Product</b></h4>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title"><b>Edit Product</b></h4>
             </div>
             <div class="modal-body">
               <form class="form-horizontal" method="POST" action="products_edit.php">
@@ -62,11 +62,7 @@
                   <div class="col-sm-5">
                     <input type="text" class="form-control" id="edit_quantity" name="quantity">
                   </div>
-				  <label for="photo" class=" control-label">Photo</label>
 
-                  <div class="col-sm-5">
-                    <input type="file" id="photo" name="photo">
-                  </div>
                 </div>
 
             </div>

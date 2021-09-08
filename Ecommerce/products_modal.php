@@ -3,9 +3,9 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
+			     <h4 class="modal-title" style="text-align:center !important;"><b><span class="name"></span></b></h4>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title"><b><span class="name"></span></b></h4>
             </div>
             <div class="modal-body">
                 <p id="desc"></p>
@@ -78,9 +78,9 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
+			   <h4 class="modal-title" style="text-align:center !important;"><b><span class="name" style="text-align:center !important;"></span></b></h4>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title"><b><span class="name"></span></b></h4>
             </div>
             <div class="modal-body">
               <form class="form-horizontal" method="POST" action="products_photo.php" enctype="multipart/form-data">
